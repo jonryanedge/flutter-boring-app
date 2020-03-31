@@ -14,7 +14,7 @@ class Article {
 final articles = [
   new Article(
     text: "Title of an article you might be interested in!",
-    domain: "ryznler.com",
+    domain: "jonryanedge.com",
     by: "jonryanedge",
     age: "1 hour",
     score: 100,

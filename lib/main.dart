@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'src/articles.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'List App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: MyHomePage(title: 'List App Demo'),
     );
@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     return Padding(
+      key: Key(article.hashCode.toString()),
       padding: const EdgeInsets.all(16.0),
       child: ExpansionTile(
 //        leading: Icon(Icons.bookmark_border),
@@ -72,8 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Icon(Icons.launch),
               Text("${article.commentsCount} comments!"),
+              FlatButton(
+                  child: Icon(Icons.launch),
+              ),
             ],
           )
         ],
