@@ -5,13 +5,11 @@ import 'src/articles.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'List App',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'List App Demo'),
@@ -37,14 +35,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(_articles.length.toString()),
       ),
-      body: new RefreshIndicator(
+      body: RefreshIndicator(
         onRefresh: () async {
-          await new Future.delayed(const Duration(seconds: 2));
+          await Future.delayed(const Duration(seconds: 2));
           setState(() {
             _articles.removeAt(0);
           });
         },
-        child: new ListView(
+        child: ListView(
           children: _articles.map(_buildItem).toList(),
         ),
       ),
@@ -56,27 +54,26 @@ class _MyHomePageState extends State<MyHomePage> {
       return Container(
         color: Colors.black54,
         child: Center(
-            child: Text("Next Topic!",
-            style: TextStyle(fontSize: 28.0, color: Colors.white)
-            ),
+          child: Text("Next Topic!",
+              style: TextStyle(fontSize: 28.0, color: Colors.white)),
         ),
       );
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: new ExpansionTile(
+      child: ExpansionTile(
 //        leading: Icon(Icons.bookmark_border),
-        title: new Text(
-            article.text,
-            style: new TextStyle(fontSize: 18.0),
+        title: Text(
+          article.text,
+          style: TextStyle(fontSize: 18.0),
         ),
-        subtitle: new Text("${article.age}"),
+        subtitle: Text("${article.age}"),
         trailing: Icon(Icons.event),
         children: <Widget>[
-          new Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new Icon(Icons.launch),
-              new Text("${article.commentsCount} comments!"),
+              Icon(Icons.launch),
+              Text("${article.commentsCount} comments!"),
             ],
           )
         ],
