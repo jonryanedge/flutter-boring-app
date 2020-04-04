@@ -73,9 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Text("${article.commentsCount} comments!"),
+//              Text("${article.commentsCount} comments!"),
+              Text("${article.domain}"),
               FlatButton(
                   child: Icon(Icons.launch),
+//                  onPressed: launch("http://jonryanedge.com"),
               ),
             ],
           )
